@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<title>Memory@OKAPI</title>
+	<link href="css/memory.css" rel="stylesheet" type='text/css'/>
+	
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="js/modernizr.js"></script>
+	<script src="js/memory.js"></script>
+
+</head>
+<body>
+	<div id="nocssanimations">
+		<img src="img/okapi.png"></img>
+		<p>Ohhh, the Okapi does not like your browser because it does not support CSS3 animations. <br/><br/>Feed the Okapi with Safari, Chrome or Firefox...</p>
+	</div>
+		
+	<div class="finished">
+		<p>Super, you've finished!  <br/>Your coupon: <span id="couponcode"></span><br/><a href="http://www.demandware.com" title="">Visit our shop, now! &rarr;</a></p>
+	</div>
+			
+	<div id="intro">				
+		<section id="left"><img src="img/okapi_big.png"></img></section>				
+		<section id="right">
+			<h1>The Okapi Memory</h1>
+			<h2>Finish the game and get a 10% coupon !</h2>
+			<p>What are you interested in to memorize?</p>
+			<input id="inputtopic" name="topic" value=""/><a href="#" id="submittopic" class="button" value="">Start Game</a>
+			<p class="hint">e.g. electronics</p>
+			<p class="error"></p>				
+		</section>				
+	</div>
+						
+	<div class="wrapper">
+		
+		<section class="memory">
+		</section>	
+		
+	</div>
+	
+</body>
+</html>
