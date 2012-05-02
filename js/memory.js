@@ -22,10 +22,12 @@ function loadProductData(data) {
 	
 	if (data == null) {
 		showError('An error occured while communicating via OCAPI');
+		toggleButton($("#submittopic"));
 		return false;
 	}
 	if (data.count < 10) {
 		showError('Your search returned ' + data.count + ' results. At least 10 results are required.');
+		toggleButton($("#submittopic"));
 		return false;
 	}
 
@@ -67,7 +69,7 @@ function loadProductData(data) {
 }
 
 function showError(message) {
-	$('#intro p.error').html(message).show('slow');
+	$('#intro p.error').html(message).show('fast');
 }
 
 function shuffle(o) {
@@ -153,6 +155,16 @@ function memoryCheck(pid_1, pid_2) {
 	}
 }
 
+function toggleButton(button) {
+	if (button.css('display') == 'none') {
+    	button.css('display', '');
+    	button.next().remove();
+	} else {
+		button.css('display', 'none');
+        $('<img class="loadingicon">').attr('src', 'http://2.bp.blogspot.com/-NVECHTO8TW0/TspwMPDBuZI/AAAAAAAAAY0/OIzr6NnoRXo/s1600/Blue-008-loading.gif').insertAfter(button);            	
+	}
+		
+}
 
 $(document).ready(function(){
 	
@@ -160,6 +172,7 @@ $(document).ready(function(){
 			showError("");
 			var query = $('#inputtopic').val();
             if (query != '') {
+            	toggleButton($(this));
             	showGrid(query);
             }
         });

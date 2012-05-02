@@ -63,6 +63,12 @@ p.error {
     float:right;
     width:500px;
     }
+    
+.loadingicon {
+	width: 15px;
+	height: 15px;
+	margin-left: 20px;
+}
 
 .wrapper { 
 	width:840px; 
