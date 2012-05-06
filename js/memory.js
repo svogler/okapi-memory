@@ -6,10 +6,15 @@ var pid_2;
 var products = [];
 var cardLaunch = false;
 
+var oc_host = 'svogler.inside-eu01.dw.demandware.net';
+var oc_basepath = 'http://' + oc_host +'/s/Sites-SiteGenesis-Site/dw/shop/v12_2';
+var oc_clientid = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
+
 function showGrid(query) {
 			
-    var url = 'http://svogler.inside-eu01.dw.demandware.net/s/Sites-SiteGenesis-Site/dw/shop/v12_2/product_search?q={query}&count=30&format=json&client_id=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&pretty_print=true'
+    var url = oc_basepath + '/product_search?q={query}&count=30&format=json&client_id={clientid}&pretty_print=true'
    	url = url.replace(/\{query\}/g, query);
+    url = url.replace(/\{clientid\}/g, oc_clientid);
     
     $.ajax({
         url: url,
@@ -31,7 +36,7 @@ function loadProductData(data) {
 		return false;
 	}
 
-	var url = 'http://svogler.inside-eu01.dw.demandware.net/s/Sites-SiteGenesis-Site/dw/shop/v12_2/products/({ids})?format=json&client_id=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&pretty_print=true'
+	var url = oc_basepath + '/products/({ids})?format=json&client_id={clientid}&pretty_print=true';
 
 	var ids = [];
 	
@@ -43,6 +48,7 @@ function loadProductData(data) {
     shuffle(ids);
     
 	url = url.replace(/\{ids\}/g, ids.slice(0,10).join("+"));
+    url = url.replace(/\{clientid\}/g, oc_clientid);
 	
 	$.ajax({
 	        url: url,
@@ -137,9 +143,9 @@ function getProduct(pid) {
 function memoryCheck(pid_1, pid_2) {
 	counter=0;
 	
-	if(pid_1 == pid_2){
+	if(pid_1 == pid_2) {
 		$('.memory section').each(function(){
-			if(($(this).find('img').attr('data-pid')== pid_1) || ($(this).find('img').attr('data-pid')== pid_2)){
+			if(($(this).find('img').attr('data-pid')== pid_1) || ($(this).find('img').attr('data-pid')== pid_2)) {
 				$(this).removeClass('flipped').addClass('checked');
 			}
 		});
@@ -161,12 +167,14 @@ function toggleButton(button) {
     	button.next().remove();
 	} else {
 		button.css('display', 'none');
-        $('<img class="loadingicon">').attr('src', 'http://2.bp.blogspot.com/-NVECHTO8TW0/TspwMPDBuZI/AAAAAAAAAY0/OIzr6NnoRXo/s1600/Blue-008-loading.gif').insertAfter(button);            	
+        $('<img class="loadingicon">').attr('src', 'img/loading.gif').insertAfter(button);            	
 	}
 		
 }
 
 $(document).ready(function(){
+	
+	$("#ocapihost").html(oc_host);
 	
 	$("#submittopic").click(function() {
 			showError("");
