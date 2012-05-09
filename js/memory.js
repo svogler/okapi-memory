@@ -16,6 +16,8 @@ function showGrid(query) {
    	url = url.replace(/\{query\}/g, query);
     url = url.replace(/\{clientid\}/g, oc_clientid);
     
+    _gaq.push(['_trackEvent', 'Game', 'Query', query]);
+    
     $.ajax({
         url: url,
         dataType: 'jsonp',
@@ -26,13 +28,15 @@ function showGrid(query) {
 function loadProductData(data) {
 	
 	if (data == null) {
-		showError('An error occured while communicating via OCAPI');
+		showError('An error occured while communicating via OCAPI');		
 		toggleButton($("#submittopic"));
+	    _gaq.push(['_trackEvent', 'Game', 'ERROR', 'CommunicationError']);	
 		return false;
 	}
 	if (data.count < 10) {
 		showError('Your search returned ' + data.count + ' results. At least 10 results are required.');
 		toggleButton($("#submittopic"));
+	    _gaq.push(['_trackEvent', 'Game', 'ERROR', 'TooLessSearchResult']);	
 		return false;
 	}
 
@@ -48,7 +52,7 @@ function loadProductData(data) {
     shuffle(ids);
     
 	url = url.replace(/\{ids\}/g, ids.slice(0,10).join("+"));
-    url = url.replace(/\{clientid\}/g, oc_clientid);
+	url = url.replace(/\{clientid\}/g, oc_clientid);
 	
 	$.ajax({
 	        url: url,
@@ -72,6 +76,7 @@ function loadProductData(data) {
 
 	});
 	
+    _gaq.push(['_trackEvent', 'Game', 'Play']);	
 }
 
 function showError(message) {
@@ -155,6 +160,7 @@ function memoryCheck(pid_1, pid_2) {
 		if(numberOfChecked == numberOfPairs) {
 			$('#couponcode').html('OKAPI2012');
 			$('.finished').fadeIn('slow');
+		    _gaq.push(['_trackEvent', 'Game', 'Finished']);	
 		}
 	} else {
 		$('.memory section').removeClass('flipped');

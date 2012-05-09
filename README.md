@@ -1,6 +1,7 @@
 okapi-memory
 ============
-okapi-memory is game that runs in the browser. The user should memorize products of an ecommerce shop running on Demandware. As incentive the user will receive a coupon code when finishing the game.
+okapi-memory is a game that runs in the browser. The user should memorize products of an ecommerce shop running on Demandware. As incentive the user will receive a coupon code when finishing the game.
+The game runs best in Chrome/Safari (so you should run it in that browser). Runs as well in FF. No IE as it does not support CSS3 transformations yet.
  
 Technical Details
 -----------------
