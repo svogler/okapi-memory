@@ -256,22 +256,20 @@ input:focus {
 	box-shadow: 0px 0px 5px #007eff;
 }
 
-#footer {
-	position: absolute;
-	bottom: 0;
+#header {
 	width: 100%;
 	height: 25px;
 	clear: left;
 	background: #efefef;
 }
 
-#footer .info1 {
+#header .info1 {
 	float: left;
 	width: 50%;
 	text-align: left;
 }
 
-#footer .info2 {
+#header .info2 {
 	float: right;
 	width: 50%;
 	text-align: right;
