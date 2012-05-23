@@ -6,8 +6,8 @@
 }
 
 body {
-	background: url('../img/background.jpg') no-repeat center top;
-	font-family: 'Comic Sans MS', cursive;
+	background: url('../img/background.jpg');
+	font-family: 'Comic Sans MS';
 	font-size: 12px;
 	color: #000;
 }
