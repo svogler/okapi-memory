@@ -6,7 +6,7 @@ var pid_2;
 var products = [];
 var cardLaunch = false;
 
-var oc_host = 'ea-eu-dev01.test11.dw.demandware.net';
+var oc_host = 'svogler.inside-eu01.dw.demandware.net';
 var oc_basepath = 'http://' + oc_host +'/s/Sites-SiteGenesis-Site/dw/shop/v12_2';
 var oc_clientid = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
 
