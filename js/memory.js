@@ -20,7 +20,7 @@ function showGrid(query) {
     $.ajax({
         url: url,
         dataType: 'jsonp',
-        timeout : 5000,
+        timeout : 10000,
         success: loadProductData,
         error: loadProductData  
     });
