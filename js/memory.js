@@ -7,7 +7,7 @@ var products = [];
 var cardLaunch = false;
 
 var oc_host = 'svogler.inside-eu01.dw.demandware.net';
-var oc_basepath = 'http://' + oc_host +'/s/Sites-SiteGenesis-Site/dw/shop/v12_2';
+var oc_basepath = 'http://' + oc_host +'/s/Sites-SiteGenesis-Site/dw/shop/v12_6';
 var oc_clientid = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
 
 function showGrid(query) {
@@ -40,7 +40,7 @@ function loadProductData(data) {
 		return false;
 	}
 
-	var url = oc_basepath + '/products/({ids})?format=json&client_id={clientid}&pretty_print=true';
+	var url = oc_basepath + '/products/({ids})?format=json&expand=images,prices&client_id={clientid}&pretty_print=true';
 
 	var ids = [];
 	
@@ -51,7 +51,7 @@ function loadProductData(data) {
     
     shuffle(ids);
     
-	url = url.replace(/\{ids\}/g, ids.slice(0,10).join("+"));
+	url = url.replace(/\{ids\}/g, ids.slice(0,10).join(","));
 	url = url.replace(/\{clientid\}/g, oc_clientid);
 	
 	$.ajax({
