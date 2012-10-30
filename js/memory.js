@@ -19,7 +19,7 @@ function showGrid(query) {
     _gaq.push(['_trackEvent', 'Game', 'Query', query]);
     $.ajax({
         url: url,
-        dataType: 'jsonp',
+        dataType: 'json',
         timeout : 10000,
         success: loadProductData,
         error: loadProductData  
@@ -56,7 +56,7 @@ function loadProductData(data) {
 	
 	$.ajax({
 	        url: url,
-	        dataType: 'jsonp',
+	        dataType: 'json',
 	        success: initGrid
 	});		
 	
