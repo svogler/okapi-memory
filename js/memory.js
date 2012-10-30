@@ -11,7 +11,7 @@ var oc_basepath = 'http://' + oc_host +'/s/Sites-SiteGenesis-Site/dw/shop/v12_6'
 var oc_clientid = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
 
 function showGrid(query) {
-			
+
     var url = oc_basepath + '/product_search?q={query}&count=30&format=json&client_id={clientid}&pretty_print=true'
    	url = url.replace(/\{query\}/g, query);
     url = url.replace(/\{clientid\}/g, oc_clientid);
