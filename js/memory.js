@@ -7,7 +7,7 @@ var products = [];
 var cardLaunch = false;
 
 var oc_host = 'svogler.inside-eu01.dw.demandware.net';
-var oc_basepath = 'http://' + oc_host +'/s/Sites-SiteGenesis-Site/dw/shop/v12_6';
+var oc_basepath = 'http://' + oc_host +'/s/Sites-SiteGenesis-Site/dw/shop/v13_6';
 var oc_clientid = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
 
 function showGrid(query) {
@@ -121,7 +121,7 @@ function initGrid(data) {
     // get all the images and put it into an array
     $.each(images, function(index, value) {
     	var p = getProduct(value.pid);
-        grid = grid + "<section><figure class=\"back\"><img src=\"" + value.image + "\" data-pid=\"" + value.pid + "\" alt=\"\" title=\"\"/><div class=\"info name\"><span>" + p.name + "</span></div><div class=\"info price\"><span>Just " + p.price + " $</span></div></figure><figure class=\"front\"><img src=\"img/okapi.png\" alt=\"\" title=\"\"/></figure></section>";        
+        grid = grid + "<section><figure class=\"back\"><img src=\"" + value.image + "\" data-pid=\"" + value.pid + "\" alt=\"\" title=\"\"/><div class=\"info name\"><span>" + p.name + "</span></div><div class=\"info price\"><span>Just " + p.prices["usd-sale-prices"] + " $</span></div></figure><figure class=\"front\"><img src=\"img/okapi.png\" alt=\"\" title=\"\"/></figure></section>";        
     });    
     
     grid = grid + "<br clear=\"all\"/>";
